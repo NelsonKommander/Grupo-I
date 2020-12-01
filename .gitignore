@@ -1,6 +1,6 @@
-rust/fatorial_simples/.vscode/*
-rust/fatorial_simples/target/*
-rust/fatorial_paralelo/.vscode/*
-rust/fatorial_paralelo/target/*
-rust/integral_trapezio_simples/.vscode/*
-rust/integral_trapezio_simples/target/*
+fichas_de_estudo/rust/fatorial_simples/.vscode/*
+fichas_de_estudo/rust/fatorial_simples/target/*
+fichas_de_estudo/rust/fatorial_paralelo/.vscode/*
+fichas_de_estudo/rust/fatorial_paralelo/target/*
+fichas_de_estudo/rust/integral_trapezio_simples/.vscode/*
+fichas_de_estudo/rust/integral_trapezio_simples/target/*
