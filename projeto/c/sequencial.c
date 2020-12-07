@@ -1,5 +1,5 @@
 // Compilando:
-// gcc sequencial.c -Wall $(apr-1-config --cflags --cppflags --includes --link-ld) -o bin
+// gcc sequencial.c -Wall -O3 $(apr-1-config --cflags --cppflags --includes --link-ld) -o bin
 
 // Definição do maior tamanho que as linhas impressas vão ocupar
 #define MAXIMUM_LINE_WIDTH  60
@@ -50,6 +50,7 @@ const tree_node * const root_Node){
 int main(int argc, char ** argv){
    // O tamanho minimo da arvore vai ser 4
    // O tamanho maximo da entrada vai ser o tamanho minimo mais dois ou a entrada
+
    const intnative_t minimum_Tree_Depth = 4;
    intnative_t maximum_Tree_Depth = atoi(argv[1]);
    if (maximum_Tree_Depth < minimum_Tree_Depth+2)
@@ -79,7 +80,7 @@ int main(int argc, char ** argv){
       apr_pool_t* execPool;
       apr_pool_create_unmanaged(&execPool);
 
-      for (intnative_t i = 0; i <= iterations; i++) {
+      for (intnative_t i = 1; i <= iterations; i++) {
             tree_node* const arvore = create_Tree(depth, execPool);
             totalChecksum += compute_Tree_Checksum(arvore);
             apr_pool_clear(execPool);
