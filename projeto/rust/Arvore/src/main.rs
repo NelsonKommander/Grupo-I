@@ -88,6 +88,10 @@ fn make_tree_par (tamanho: i32, n_iter:i32) -> String {
 // catch {tamanho_int = 10};
 
 fn main() {
+
+    //a próxima linha de código é usada para limitar a quantidade de threads que o rayon usa
+    rayon::ThreadPoolBuilder::new().num_threads(4).build_global().unwrap();
+
     let t = env::args().nth(1).and_then(|n| n.parse().ok()).unwrap_or(10);
     let t_min = 4;
     let t_max:i32 ;
@@ -96,25 +100,23 @@ fn main() {
     }  else { t_max = t}
     
     /*
-        1º teste, linear de criação de arvore com tamanho "t_max + 1"
+        1º parte, criação de arvore com tamanho "t_max + 1"
     Nome: arvore1
     Tamanho: t_max+1
-        */
-    // vamos usar std::time para tentar calcular a duração de cada parte do processo
-    //ti = Instant::now(), para salvar o tempo inicial e depois usaremos ti.elapsed() para calcular a diferença
+    vamos usar std::time para tentar calcular a duração de cada parte do processo
+    ti = Instant::now(), para salvar o tempo inicial e depois usaremos ti.elapsed() para calcular a diferença
+    */
+    
     let t1 = Instant::now();
     let arena1 = Arena::new();
     let tamanho = t_max + 1;
     let arvore1 = make_tree(&arena1, tamanho);
     println!("Arvore de tamanho {:>5} criada, check_sum = {:>5}, tempo:{:?} ", tamanho, check_sum(&arvore1), t1.elapsed());
-    // 1º teste e tudo funciona até aqui
 
     /*
         Agora vamos criar uma arvore que ira durar por mais tempo,
-    não existe diferença entre essa nova arvore e a anterior, as duas são criatas
-    sem paralelização, essa arvore entretanto só realiza o check_sum no final do código
-    depois de criarmos a arvore de forma paralela, isso provavelemnte é feito para testar
-    a capacidade de alocar memoria? (duvida)
+    a diferença entre essa arvore e a anterior é o tamanho, e o seu final de vida,
+    isso provavelmente é feito para testar a capacidade de alocar memoria? (duvida)
     Nome: arvore2
     tamanho = t_max
     */
@@ -136,10 +138,13 @@ fn main() {
         // eu ia modificar isso, mas parece ser mais eficiente do que fazer a potencia que eu decidi deixar assim
         make_tree_par(t_atual, iter)
     }).collect::<Vec<_>>();
-    //.sum() foi usado anterirormente para juntar os resultados dos iteradores paralelos
-    //.collect() é a versão mais generica possivel dele, ela vai coletar os resulatados e depois vamos colocalos em um vetor,
-    //.collect() é a forma mais versatil de agrupar os dados, mas depende do programador decidir o que fazer com o que é coletado
-    //https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+    /*
+
+    .sum() foi usado dentro de make_tree_par ele coleta os resultados e aplica soma neles.
+    .collect() é a versão mais generica possivel dele, ela vai coletar os resulatados e depois vamos colocalos em um vetor,
+    .collect() é a forma mais versatil de agrupar os dados, mas depende do programador decidir o que fazer com o que é coletado
+    https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect
+    */
 
     //o resultado de out_paralel() é um vetor com o texto já formatado, agora basta apenas dar print
     for msg in out_paralel{ println!("{}", msg)};

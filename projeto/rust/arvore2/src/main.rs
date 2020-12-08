@@ -1,9 +1,13 @@
-// typed_arena nos dá acesso a alocação rápida de memória, e rayon dá acesso a multitread
+/*
+    O código em série foi feito após o código em paralelo, por isso ele possui algumas peculiaridades
+    entretanto após esse push os cometários serão ajustados.
+    vale lembrar que boa parte dos comentários nesse código serão iguais ao do em paralelo,
+    exceto pelos comentários que dizem respeito a paralelização.
+*/
 extern crate typed_arena;
-extern crate rayon;
+// a crate rayon não é necessária
 
 use typed_arena::Arena;
-use rayon::prelude::*;
 use std::env;
 use std::time::*;
 //std:env está aqui pq precisamos de args, para pegar o que é colocado na linha de comando.
@@ -45,7 +49,9 @@ fn make_tree_par (tamanho: i32, n_iter:i32) -> String {
     format!("{:>5} arvores, de tamanho {:>5}, check sum = {:>10}; tempo: {:?} ", n_iter, tamanho, par_check, t_temp.elapsed())
 }
 */
-///*
+
+//em cima temos o código em paralelo, abaixo temos ele em série 
+
 fn make_tree_par (tamanho: i32, n_iter:i32) -> String {
     let t_temp = Instant::now();
     let mut check :i32 = 0;
@@ -58,7 +64,7 @@ fn make_tree_par (tamanho: i32, n_iter:i32) -> String {
     format!("{:>5} arvores, de tamanho {:>5}, check sum = {:>10}; tempo: {:?} ", n_iter, tamanho, check, t_temp.elapsed())
 
 }
-//*/
+
 
 fn main() {
     let t = env::args().nth(1).and_then(|n| n.parse().ok()).unwrap_or(10);
@@ -80,19 +86,17 @@ fn main() {
     let tamanho = t_max + 1;
     let arvore1 = make_tree(&arena1, tamanho);
     println!("Arvore de tamanho {:>5} criada, check_sum = {:>5}, tempo:{:?} ", tamanho, check_sum(&arvore1), t1.elapsed());
-    // 1º teste e tudo funciona até aqui
 
     let t2 = Instant::now();
     let arena2 = Arena::new();
     let arvore2 = make_tree(&arena2, t_max);
 
     /*
-    let out_paralel = (t_min/2 .. t_max/2 +1).into_par_iter().map(|t_dividido| { 
-        let t_atual = t_dividido * 2;
-        let iter = 1 << ((t_max + t_min - t_atual) as u32);
-        make_tree_par(t_atual, iter)
-    }).collect::<Vec<_>>();
-   */
+    Usamos um vetor para coletar a saida da mesma forma que fizemos anterirormente
+    mas dessa vez ele é criado antes e os valores entram nele usando push,
+    isso é feito pois não podemos usar .collect()
+    o print é feito da mesma forma que no outro código
+    */
     let a_iters = (t_min/2 .. t_max/2 +1).into_iter();
     let mut out_paralel = Vec::new();
     for a_iter in a_iters {
