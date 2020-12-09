@@ -14,40 +14,16 @@ Foram tomadas medições em 7 diferentes execuções usando como parametro a pro
 
 ### [Sequencial](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/c/sequencial.c)
 
-
-<table>
-    <tr>
-        <td><strong>Run 1</strong></td>
-        <td>2.939s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 2</strong></td>
-        <td>2.949s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 3</strong></td>
-        <td>3.113s</td> </tr>
-    <tr>
-        <td><strong>Run 4</strong></td>
-        <td>3.032s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 5</strong></td>
-        <td>3.018s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 6</strong></td>
-        <td>3.149s</td>
-    </tr>
-    <tr> <td><strong>Run 7</strong></td>
-         <td>2.842s</td>
-    </tr>
-    <tr>
-        <td><strong>Média</strong></td>
-        <td>3.088s</td>
-    </tr>
-</table>
-
+||
+---------|------|
+**Run 1**|2.939s|
+**Run 2**|2.949s|
+**Run 3**|3.113s|
+**Run 4**|3.032s|
+**Run 5**|3.018s|
+**Run 6**|3.149s|
+**Run 7**|2.842s|
+**Média**|3.088s|
 
 
 ### [Paralelo](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/c/parametrizado.c)
@@ -69,48 +45,18 @@ Foram tomadas medições em 7 diferentes execuções usando como parametro a pro
 
 Dados apresentados foram calculados usando o tempo médio.
 
-<table>
-    <tr>
-        <td colspan="4" align="center"><b> Sequencial </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"> 3.088s </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"><b> Paralelo </td>
-    </tr>
-    <tr>
-        <td><b> 1 Core </td>
-        <td><b> 2 Cores</td>
-        <td><b> 3 Cores</td>
-        <td><b> 4 Cores</td>
-    </tr>
-    <tr>
-        <td> 3.073s </td>
-        <td> 1.796s </td>
-        <td> 1.670s </td>
-        <td> 1.550s </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"><b> Speedup </td>
-    </tr>
-    <tr>
-        <td> 1 </td>
-        <td> 1.711 </td>
-        <td> 1.840 </td>
-        <td> 1.982 </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"><b> Efficiency </td>
-    </tr>
-    <tr>
-        <td> 1.186 </td>
-        <td> 1.079 </td>
-        <td> 0.947 </td>
-        <td> 0.737 </td>    
-    </tr>
-</table>
 
+|||||
+|--- |--- |--- |--- |
+| --- |**Sequencial**| --- | --- |
+||3.088s|||
+| --- |**Paralelo**| --- | --- |
+|**1 Core**|**2 Cores**|**3 Cores**|**4 Cores**|
+|3.073s|1.796s |1.670s  |1.550s|
+| --- |**Speedup**| --- | --- |
+| 1   | 1.711  | 1.840  |1.982|
+| --- |**Efficiency**| --- | --- |
+|1.186| 1.079  | 0.947  |0.737|
 
 ## Desempenho do algorítmo feito em Rust
 
@@ -121,33 +67,16 @@ Aqui também foram tomadas medições em 7 diferentes execuções usando como pa
 ### [Sequencial](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/rust/arvore2/src/main.rs)
 
 
-<table>
-    <tr>
-        <td><strong>Run 1</strong></td> <td>4.408s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 2</strong></td> <td>4.496s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 3</strong></td> <td>4.548s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 4</strong></td> <td>4.797s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 5</strong></td> <td>4.693s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 6</strong></td> <td>4.558s</td>
-    </tr>
-    <tr>
-        <td><strong>Run 7</strong></td> <td>4.853s</td>
-    </tr>
-    <tr>
-        <td><strong>Média</strong></td> <td>4.573s</td>
-    </tr>
-</table>
-
+||
+---------|------|
+**Run 1**|4.408s|
+**Run 2**|4.496s|
+**Run 3**|4.548s|
+**Run 4**|4.797s|
+**Run 5**|4.693s|
+**Run 6**|4.558s|
+**Run 7**|4.853s|
+**Média**|4.573s|
 
 ### [Paralelo](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/rust/Arvore/src/main.rs)
 
@@ -170,47 +99,17 @@ Aqui também foram tomadas medições em 7 diferentes execuções usando como pa
 
 Dados apresentados foram calculados usando o tempo médio.
 
-<table>
-    <tr>
-        <td colspan="4" align="center"><b> Sequencial </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"> 4.573s </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"><b> Paralelo </td>
-    </tr>
-    <tr>
-        <td><b> 1 Core </td>
-        <td><b> 2 Cores</td>
-        <td><b> 3 Cores</td>
-        <td><b> 4 Cores</td>
-    </tr>
-    <tr>
-        <td> 3.853s </td>
-        <td> 2.119s </td>
-        <td> 1.609s </td>
-        <td> 1.448s </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"><b> Speedup </td>
-    </tr>
-    <tr>
-        <td> 1,186 </td>
-        <td> 2,158 </td>
-        <td> 2,842 </td>
-        <td> 3,158 </td>
-    </tr>
-    <tr>
-        <td colspan="4" align="center"><b> Efficiency </td>
-    </tr>
-    <tr>
-        <td> 1.186 </td>
-        <td> 1.079 </td>
-        <td> 0.947 </td>
-        <td> 0,789 </td>
-    </tr>
-</table>
+|||||
+|--- |--- |--- |--- |
+||**Sequencial**|||
+||4.573s|||
+| --- |**Paralelo**| --- | --- |
+|**1 Core**|**2 Cores**|**3 Cores**|**4 Cores**|
+|3.853s|2.119s|1.609s|1.448s|
+| --- |**Speedup**| --- | --- |
+|1,186|2,158|2,842|3,158|
+| --- |**Efficiency**| --- | --- |
+|1.186|1.079|0.947|0,789|
 
 
 
