@@ -16,14 +16,36 @@ Foram tomadas medições em 7 diferentes execuções usando como parametro a pro
 
 
 <table>
-    <tr> <td><strong>Run 1</strong></td> <td>2.939s</td> </tr>
-    <tr> <td><strong>Run 2</strong></td> <td>2.949s</td> </tr>
-    <tr> <td><strong>Run 3</strong></td> <td>3.113s</td> </tr>
-    <tr> <td><strong>Run 4</strong></td> <td>3.032s</td> </tr>
-    <tr> <td><strong>Run 5</strong></td> <td>3.018s</td> </tr>
-    <tr> <td><strong>Run 6</strong></td> <td>3.149s</td> </tr>
-    <tr> <td><strong>Run 7</strong></td> <td>2.842s</td> </tr>
-    <tr> <td><strong>Média</strong></td> <td>3.088s</td> </tr>
+    <tr>
+        <td><strong>Run 1</strong></td>
+        <td>2.939s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 2</strong></td>
+        <td>2.949s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 3</strong></td>
+        <td>3.113s</td> </tr>
+    <tr>
+        <td><strong>Run 4</strong></td>
+        <td>3.032s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 5</strong></td>
+        <td>3.018s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 6</strong></td>
+        <td>3.149s</td>
+    </tr>
+    <tr> <td><strong>Run 7</strong></td>
+         <td>2.842s</td>
+    </tr>
+    <tr>
+        <td><strong>Média</strong></td>
+        <td>3.088s</td>
+    </tr>
 </table>
 
 
@@ -48,15 +70,45 @@ Foram tomadas medições em 7 diferentes execuções usando como parametro a pro
 Dados apresentados foram calculados usando o tempo médio.
 
 <table>
-    <tr> <td colspan="4" align="center"><b> Sequencial </td> </tr>
-    <tr> <td colspan="4" align="center"> 3.088s </td> </tr>
-    <tr> <td colspan="4" align="center"><b> Paralelo </td> </tr>
-    <tr> <td><b> 1 Core </td> <td><b> 2 Cores</td> <td><b> 3 Cores</td> <td><b> 4 Cores</td> </tr>
-    <tr> <td> 3.073s </td> <td> 1.796s </td> <td> 1.670s </td> <td> 1.550s </td> </tr>
-    <tr> <td colspan="4" align="center"><b> Speedup </td> </tr>
-    <tr> <td> 1 </td> <td> 1.711 </td> <td> 1.840 </td> <td> 1.982 </td> </tr>
-    <tr> <td colspan="4" align="center"><b> Efficiency </td> </tr>
-    <tr> <td> 1.186 </td> <td> 1.079 </td> <td> 0.947 </td> <td> 0.737 </td> </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Sequencial </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"> 3.088s </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Paralelo </td>
+    </tr>
+    <tr>
+        <td><b> 1 Core </td>
+        <td><b> 2 Cores</td>
+        <td><b> 3 Cores</td>
+        <td><b> 4 Cores</td>
+    </tr>
+    <tr>
+        <td> 3.073s </td>
+        <td> 1.796s </td>
+        <td> 1.670s </td>
+        <td> 1.550s </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Speedup </td>
+    </tr>
+    <tr>
+        <td> 1 </td>
+        <td> 1.711 </td>
+        <td> 1.840 </td>
+        <td> 1.982 </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Efficiency </td>
+    </tr>
+    <tr>
+        <td> 1.186 </td>
+        <td> 1.079 </td>
+        <td> 0.947 </td>
+        <td> 0.737 </td>    
+    </tr>
 </table>
 
 
@@ -70,14 +122,30 @@ Aqui também foram tomadas medições em 7 diferentes execuções usando como pa
 
 
 <table>
-    <tr> <td><strong>Run 1</strong></td> <td>4.408s</td> </tr>
-    <tr> <td><strong>Run 2</strong></td> <td>4.496s</td> </tr>
-    <tr> <td><strong>Run 3</strong></td> <td>4.548s</td> </tr>
-    <tr> <td><strong>Run 4</strong></td> <td>4.797s</td> </tr>
-    <tr> <td><strong>Run 5</strong></td> <td>4.693s</td> </tr>
-    <tr> <td><strong>Run 6</strong></td> <td>4.558s</td> </tr>
-    <tr> <td><strong>Run 7</strong></td> <td>4.853s</td> </tr>
-    <tr> <td><strong>Média</strong></td> <td>4.573s</td> </tr>
+    <tr>
+        <td><strong>Run 1</strong></td> <td>4.408s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 2</strong></td> <td>4.496s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 3</strong></td> <td>4.548s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 4</strong></td> <td>4.797s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 5</strong></td> <td>4.693s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 6</strong></td> <td>4.558s</td>
+    </tr>
+    <tr>
+        <td><strong>Run 7</strong></td> <td>4.853s</td>
+    </tr>
+    <tr>
+        <td><strong>Média</strong></td> <td>4.573s</td>
+    </tr>
 </table>
 
 
@@ -103,15 +171,45 @@ Aqui também foram tomadas medições em 7 diferentes execuções usando como pa
 Dados apresentados foram calculados usando o tempo médio.
 
 <table>
-    <tr> <td colspan="4" align="center"><b> Sequencial </td> </tr>
-    <tr> <td colspan="4" align="center"> 4.573s </td> </tr>
-    <tr> <td colspan="4" align="center"><b> Paralelo </td> </tr>
-    <tr> <td><b> 1 Core </td> <td><b> 2 Cores</td> <td><b> 3 Cores</td> <td><b> 4 Cores</td> </tr>
-    <tr> <td> 3.853s </td> <td> 2.119s </td> <td> 1.609s </td> <td> 1.448s </td> </tr>
-    <tr> <td colspan="4" align="center"><b> Speedup </td> </tr>
-    <tr> <td> 1,186 </td> <td> 2,158 </td> <td> 2,842 </td> <td> 3,158 </td> </tr>
-    <tr> <td colspan="4" align="center"><b> Efficiency </td> </tr>
-    <tr> <td> 1.186 </td> <td> 1.079 </td> <td> 0.947 </td> <td> 0,789 </td> </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Sequencial </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"> 4.573s </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Paralelo </td>
+    </tr>
+    <tr>
+        <td><b> 1 Core </td>
+        <td><b> 2 Cores</td>
+        <td><b> 3 Cores</td>
+        <td><b> 4 Cores</td>
+    </tr>
+    <tr>
+        <td> 3.853s </td>
+        <td> 2.119s </td>
+        <td> 1.609s </td>
+        <td> 1.448s </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Speedup </td>
+    </tr>
+    <tr>
+        <td> 1,186 </td>
+        <td> 2,158 </td>
+        <td> 2,842 </td>
+        <td> 3,158 </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center"><b> Efficiency </td>
+    </tr>
+    <tr>
+        <td> 1.186 </td>
+        <td> 1.079 </td>
+        <td> 0.947 </td>
+        <td> 0,789 </td>
+    </tr>
 </table>
 
 
