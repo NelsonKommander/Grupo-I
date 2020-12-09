@@ -79,15 +79,23 @@ Média: 3.088
 | 3.073s | 1.796s | 1.670s | 1.550s |
 
 ### Speedup
-1 CORE - 1
-2 CORES - 1,711
-3 CORES - 1,840
-4 CORES - 1,982
+
+1 core - 1
+
+2 cores - 1,711
+
+3 cores - 1,840
+
+4 cores - 1,982
 
 ### Efficiency
+
 1 core - 1,186
+
 2 cores - 1,079
+
 3 cores - 0,947
+
 4 cores - 0,737
 
 
@@ -164,15 +172,23 @@ Média: 4.573
 | 3.853s | 2.119s | 1.609s | 1.550s |
 
 ### Speedup
+
 1 core - 1,186
+
 2 cores - 2,158
+
 3 cores - 2,842
+
 4 cores - 2,950
 
 ### Efficiency
+
 1 core - 1,186
+
 2 cores - 1,079
+
 3 cores - 0,947
+
 4 cores - 0,737
 
 ## Gráficos de tempo/Número de core
