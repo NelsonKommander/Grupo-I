@@ -12,7 +12,7 @@ A implementação de memory pooling usada foi a encontrada na lib apr e, para pa
 
 Foram tomadas medições em 7 diferentes execuções usando como parametro a profundidade de árvore de 21
 
-### [Sequencial](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/c/sequencial.c)
+### [Sequencial](https://raw.githubusercontent.com/NelsonKommander/Grupo-I/main/projeto/c/sequencial.c?token=ALL5TBBMQFZABLYDY2DH7GS73GMDM)
 
 ||
 ---------|------|
@@ -26,7 +26,7 @@ Foram tomadas medições em 7 diferentes execuções usando como parametro a pro
 **Média**|3.088s|
 
 
-### [Paralelo](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/c/parametrizado.c)
+### [Paralelo](https://raw.githubusercontent.com/NelsonKommander/Grupo-I/main/projeto/c/parametrizado.c?token=ALL5TBDSZXXCBJAZCKS2IHK73GMFI)
 
 
 |Numero de cores|    1  	|    2      |    3      |    4      |
@@ -64,7 +64,7 @@ No quesito de gerenciamento de memória foi usada a crate [typed arena](https://
 
 Aqui também foram tomadas medições em 7 diferentes execuções usando como parametro a profundidade de árvore de 21
 
-### [Sequencial](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/rust/arvore2/src/main.rs)
+### [Sequencial](https://raw.githubusercontent.com/NelsonKommander/Grupo-I/main/projeto/rust/arvore2/src/main.rs?token=ALL5TBCQWRZFUTK64IMCZR273GMHS)
 
 
 ||
@@ -78,7 +78,7 @@ Aqui também foram tomadas medições em 7 diferentes execuções usando como pa
 **Run 7**|4.853s|
 **Média**|4.573s|
 
-### [Paralelo](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/rust/Arvore/src/main.rs)
+### [Paralelo](https://raw.githubusercontent.com/NelsonKommander/Grupo-I/main/projeto/rust/Arvore/src/main.rs?token=ALL5TBH5HA2FPDLZ7KC7PIC73GMJG)
 
 
 
