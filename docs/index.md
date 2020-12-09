@@ -4,192 +4,117 @@ Foi designado ao nosso grupo criar algorítmos sequenciais e paralelos nas ligua
 
 ## O problema
 
-Uma árvore binária é uma estrutura de dados útil quando precisam ser tomadas decisões bidirecionais em cada ponto de um processo. Adicionamos a versão paralelizada para que a criação de alguns desses caminhos possam ser feitas de forma simuntâneas e agilizar o processo.
+Uma árvore binária é uma estrutura de dados útil quando precisam ser tomadas decisões bidirecionais em cada ponto de um processo. O nosso trabalho consiste em criar árvores binárias perfeitas usando no minimo o numero de alocações contidas na [implementação exemplo do Jeremy Zerfa.](https://benchmarksgame-team.pages.debian.net/benchmarksgame/program/binarytrees-gcc-3.html)
 
-## Desempenho do Algorítmo feito em c
+## Desempenho do algorítmo feito em C
 
-Para paralelizar o algoritmo, usamos o a lib do mpi.
+A implementação de memory pooling usada foi a encontrada na lib apr e, para paralelizar o algoritmo, usamos o a lib openmpi.
 
+Foram tomadas medições em 7 diferentes execuções usando como parametro a profundidade de árvore de 21
 
-### Sequencial
-
-|Sequencial|
-|-		|
-|2.939s		|
-|2.949s		|
-|3.113s		|
-|3.032s		|
-|3.018s		|
-|3.149s		|
-|2.842s		|
-
-Média: 3.088
-
-### Paralelo
+### [Sequencial](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/c/sequencial.c)
 
 
-| 1 núcleo 	|
-|-	|
-| 3.005s 	|
-| 3.051s 	|
-| 3.056s 	|
-| 3.162s 	|
-| 3.018s 	|
-| 3.158s 	|
-| 3.067s 	|
+<table>
+    <tr> <td><strong>Run 1</strong></td> <td>2.939s</td> </tr>
+    <tr> <td><strong>Run 2</strong></td> <td>2.949s</td> </tr>
+    <tr> <td><strong>Run 3</strong></td> <td>3.113s</td> </tr>
+    <tr> <td><strong>Run 4</strong></td> <td>3.032s</td> </tr>
+    <tr> <td><strong>Run 5</strong></td> <td>3.018s</td> </tr>
+    <tr> <td><strong>Run 6</strong></td> <td>3.149s</td> </tr>
+    <tr> <td><strong>Run 7</strong></td> <td>2.842s</td> </tr>
+    <tr> <td><strong>Média</strong></td> <td>3.088s</td> </tr>
+</table>
 
 
-| 2 núcleos 	|
-|-	|
-| 1.800s	|
-| 1.721s	|
-| 3.056s 	|
-| 1.807s	|
-| 1.811s	|
-| 1.880s 	|
-| 1.790s	|
+
+### [Paralelo](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/c/parametrizado.c)
 
 
-| 3 núcleos 	|
-|-	|
-| 1.622ss 	|
-| 1.678s 	|
-| 1.733s 	|
-| 1.779s 	|
-| 1.646ss 	|
-| 1.557s 	|
-| 1.678s 	|
+|Numero de cores|    1  	|    2      |    3      |    4      |
+|---------------| --------- | --------- | --------- | --------- |
+|**Run 1**      | 3.005s 	| 1.800s	| 1.622s 	| 1.546s 	|
+|**Run 2**      | 3.051s 	| 1.721s	| 1.678s 	| 1.556s 	|
+|**Run 3**      | 3.056s 	| 3.056s 	| 1.733s 	| 1.463s 	|
+|**Run 4**      | 3.162s 	| 1.807s	| 1.779s 	| 1.558s 	|
+|**Run 5**      | 3.018s 	| 1.811s	| 1.646s 	| 1.580s 	|
+|**Run 6**      | 3.158s 	| 1.880s 	| 1.557s 	| 1.556s 	|
+|**Run 7**      | 3.067s 	| 1.790s	| 1.678s 	| 1.592s 	|
+|**Média**      | 3.073s    | 1.796s    | 1.670s    | 1.550s    |
 
 
-| 4 núcleos 	|
-|-	|
-| 1.546s 	|
-| 1.556s 	|
-| 1.463s 	|
-| 1.558s 	|
-| 1.580s 	|
-| 1.556s 	|
-| 1.592s 	|
+### Métricas
+
+Dados apresentados foram calculados usando o tempo médio.
+
+<table>
+    <tr> <td colspan="4" align="center"><b> Sequencial </td> </tr>
+    <tr> <td colspan="4" align="center"> 3.088s </td> </tr>
+    <tr> <td colspan="4" align="center"><b> Paralelo </td> </tr>
+    <tr> <td><b> 1 Core </td> <td><b> 2 Cores</td> <td><b> 3 Cores</td> <td><b> 4 Cores</td> </tr>
+    <tr> <td> 3.073s </td> <td> 1.796s </td> <td> 1.670s </td> <td> 1.550s </td> </tr>
+    <tr> <td colspan="4" align="center"><b> Speedup </td> </tr>
+    <tr> <td> 1 </td> <td> 1.711 </td> <td> 1.840 </td> <td> 1.982 </td> </tr>
+    <tr> <td colspan="4" align="center"><b> Efficiency </td> </tr>
+    <tr> <td> 1.186 </td> <td> 1.079 </td> <td> 0.947 </td> <td> 0.737 </td> </tr>
+</table>
 
 
-### Média de tempo por número de core
+## Desempenho do algorítmo feito em Rust
 
-| 1      | 2      | 3      | 4      |
-|--------|--------|--------|--------|
-| 3.073s | 1.796s | 1.670s | 1.550s |
+No quesito de gerenciamento de memória foi usada a crate [typed arena](https://crates.io/crates/typed-arena) e, para paralelizar o algoritmo, utilizamos a crate [rayon](https://github.com/rayon-rs/rayon).
 
-### Speedup
+Aqui também foram tomadas medições em 7 diferentes execuções usando como parametro a profundidade de árvore de 21
 
-1 core - 1
-
-2 cores - 1,711
-
-3 cores - 1,840
-
-4 cores - 1,982
-
-### Efficiency
-
-1 core - 1,186
-
-2 cores - 1,079
-
-3 cores - 0,947
-
-4 cores - 0,737
+### [Sequencial](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/rust/arvore2/src/main.rs)
 
 
-## Desempenho do Algorítmo feito em Rust
-
-Para paralelizar o algoritmo, utilizamos uma lib chamada rayon. [Link para intalação da lib.](https://github.com/rayon-rs/rayon)
-
-### Sequencial
-
-|Sequencial|
-|-		|
-|4.408s		|
-|4.496s		|
-|4.548s		|
-|4.797s		|
-|4.693s		|
-|4.558s		|
-|4.853s		|
-
-Média: 4.573
+<table>
+    <tr> <td><strong>Run 1</strong></td> <td>4.408s</td> </tr>
+    <tr> <td><strong>Run 2</strong></td> <td>4.496s</td> </tr>
+    <tr> <td><strong>Run 3</strong></td> <td>4.548s</td> </tr>
+    <tr> <td><strong>Run 4</strong></td> <td>4.797s</td> </tr>
+    <tr> <td><strong>Run 5</strong></td> <td>4.693s</td> </tr>
+    <tr> <td><strong>Run 6</strong></td> <td>4.558s</td> </tr>
+    <tr> <td><strong>Run 7</strong></td> <td>4.853s</td> </tr>
+    <tr> <td><strong>Média</strong></td> <td>4.573s</td> </tr>
+</table>
 
 
-### Paralelo
+### [Paralelo](https://github.com/NelsonKommander/Grupo-I/blob/main/projeto/rust/Arvore/src/main.rs)
 
 
-| 1 núcleo 	|
-|-	|
-| 3.770s 	|
-| 3.875s 	|
-| 3.897s 	|
-| 3.763s 	|
-| 3.876s 	|
-| 3.941s 	|
-| 3.024s 	|
 
 
-| 2 núcleos 	|
-|-	|
-| 2.209s	|
-| 2.136s	|
-| 1.999s 	|
-| 2.121s	|
-| 2.079s	|
-| 2.169s 	|
-| 2.157s	|
+|Numero de cores|    1  	|    2      |    3      |    4      |
+|---------------| --------- | --------- | --------- | --------- |
+|**Run 1**      | 3.770s 	| 2.209s	| 1.427s 	| 1.554s 	|
+|**Run 2**      | 3.875s 	| 2.136s	| 1.703s 	| 1.521s 	|
+|**Run 3**      | 3.897s 	| 1.999s 	| 1.486s 	| 1.439s 	|
+|**Run 4**      | 3.763s 	| 2.121s	| 1.691s 	| 1.518s 	|
+|**Run 5**      | 3.876s 	| 2.079s	| 1.692s 	| 1.450s 	|
+|**Run 6**      | 3.941s 	| 2.169s 	| 1.655s 	| 1.324s 	|
+|**Run 7**      | 3.024s 	| 2.157s	| 1.731s 	| 1.330s 	|
+|**Média**      | 3.853s    | 2.119s    | 1.609s    | 1.448s    |
 
 
-| 3 núcleos 	|
-|-	|
-| 1.427s 	|
-| 1.703s 	|
-| 1.486s 	|
-| 1.691s 	|
-| 1.692s 	|
-| 1.655s 	|
-| 1.731s 	|
+### Métricas
+
+Dados apresentados foram calculados usando o tempo médio.
+
+<table>
+    <tr> <td colspan="4" align="center"><b> Sequencial </td> </tr>
+    <tr> <td colspan="4" align="center"> 4.573s </td> </tr>
+    <tr> <td colspan="4" align="center"><b> Paralelo </td> </tr>
+    <tr> <td><b> 1 Core </td> <td><b> 2 Cores</td> <td><b> 3 Cores</td> <td><b> 4 Cores</td> </tr>
+    <tr> <td> 3.853s </td> <td> 2.119s </td> <td> 1.609s </td> <td> 1.448s </td> </tr>
+    <tr> <td colspan="4" align="center"><b> Speedup </td> </tr>
+    <tr> <td> 1,186 </td> <td> 2,158 </td> <td> 2,842 </td> <td> 3,158 </td> </tr>
+    <tr> <td colspan="4" align="center"><b> Efficiency </td> </tr>
+    <tr> <td> 1.186 </td> <td> 1.079 </td> <td> 0.947 </td> <td> 0,789 </td> </tr>
+</table>
 
 
-| 4 núcleos 	|
-|-	|
-| 1.554s 	|
-| 1.521s 	|
-| 1.439s 	|
-| 1.518s 	|
-| 1.450s 	|
-| 1.324s 	|
-| 1.330s 	|
-
-
-### Média de tempo por número de core
-
-| 1      | 2      | 3      | 4      |
-|--------|--------|--------|--------|
-| 3.853s | 2.119s | 1.609s | 1.550s |
-
-### Speedup
-
-1 core - 1,186
-
-2 cores - 2,158
-
-3 cores - 2,842
-
-4 cores - 2,950
-
-### Efficiency
-
-1 core - 1,186
-
-2 cores - 1,079
-
-3 cores - 0,947
-
-4 cores - 0,737
 
 ## Gráficos de tempo/Número de core
 
@@ -200,4 +125,3 @@ Média: 4.573
 ### Rust
 
 ![Alt](https://cdn.discordapp.com/attachments/725481134141472819/786045015843274802/WhatsApp_Image_2020-12-08_at_10.38.16_PM.jpeg)
-
