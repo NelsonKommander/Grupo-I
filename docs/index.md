@@ -2,6 +2,12 @@
 
 Foi designado ao nosso grupo criar algorítmos sequenciais e paralelos nas liguagem C e na liguagem Rust.
 
+## Integrantes
+- Diego Matheus Prado Mendoça Santos
+- Nelson Ribeiro Reis Filho
+- Raduchiu da Costa Amaral
+- Gabriel da Costa Lima Fonseca
+
 ## O problema
 
 Uma árvore binária é uma estrutura de dados útil quando precisam ser tomadas decisões bidirecionais em cada ponto de um processo. O nosso trabalho consiste em criar árvores binárias perfeitas usando no minimo o numero de alocações contidas na [implementação exemplo do Jeremy Zerfa.](https://benchmarksgame-team.pages.debian.net/benchmarksgame/program/binarytrees-gcc-3.html)
